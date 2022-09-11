@@ -1,9 +1,14 @@
 import './App.css';
+import { StreamChat } from 'stream-chat'
+import { Chat } from 'stream-chat-react'
+import Cookies from 'universal-cookie'
+
+const apiKey = 'xbaahjpb5rez';
+const client = StreamChat.getInstance(apiKey);
 
 function App() {
   return (
-    <div className="App">
-      Lets Go
+    <div className="app-wrapper">
     </div>
   );
 }
