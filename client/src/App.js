@@ -9,6 +9,7 @@ const client = StreamChat.getInstance(apiKey);
 function App() {
   return (
     <div className="app-wrapper">
+    Advanced Messaging App
     </div>
   );
 }
