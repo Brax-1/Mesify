@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 import Logo from "../../assets/logo.svg";
+import {ToastContainer,toast} from 'react-toastify'
 
 export const Layout = (props) => {
 	return (
+		<>
 		<div className={classes.layout_wrapper}>
 			<div className={classes.layout_content}>
 				<div className={classes.layout_navbar}>
@@ -40,5 +42,7 @@ export const Layout = (props) => {
                 </div>
 			</div>
 		</div>
+		<ToastContainer/>
+		</>
 	);
 };
