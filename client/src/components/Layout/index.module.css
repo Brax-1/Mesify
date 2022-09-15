@@ -29,6 +29,7 @@
 	justify-content: space-between;
 	padding: 50px;
 	padding-bottom: 10px;
+    align-items: center;
 }
 .layout_navbar_right span {
 	color: white;

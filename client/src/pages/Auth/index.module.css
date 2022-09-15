@@ -22,12 +22,6 @@
 	box-shadow: 0 0 30px -10px rgb(0, 0, 0);
 	right: -40%;
 }
-.register_wrapper .helloRobot {
-	position: absolute;
-	width: 40vw;
-	right: 10%;
-	z-index: 2;
-}
 .register_wrapper form {
 	display: flex;
 	flex-direction: column;
@@ -84,10 +78,9 @@
 	background: white;
 	color: rgb(0, 135, 232);
 }
-.register_wrapper img {
-	width: 40px;
+.register_wrapper span {
+	text-transform: uppercase;
 }
-
 @media only screen and (max-width: 1300px) {
 	.register_wrapper {
 		justify-content: center;
@@ -110,26 +103,5 @@
 	}
 }
 
-.brand {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	justify-content: center;
-	img {
-		height: 5rem;
-	}
-	h1 {
-		color: white;
-		text-transform: uppercase;
-	}
-}
 
-.register_wrapper span {
-	color: white;
-	text-transform: uppercase;
-	a {
-		color: #4e0eff;
-		text-decoration: none;
-		font-weight: bold;
-	}
-}
+
