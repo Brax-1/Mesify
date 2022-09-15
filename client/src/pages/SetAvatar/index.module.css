@@ -1,0 +1,61 @@
+.avatar_wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 3rem;
+	height: 100%;
+	width: 100%;
+}
+
+.avatar_wrapper .loader {
+	max-inline-size: 200px;
+}
+.avatar_wrapper .title_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.avatar_wrapper .title_container h1 {
+	color: white;
+}
+.avatar_wrapper .avatars {
+	display: flex;
+	gap: 5rem;
+    cursor: pointer;
+    margin: 50px;
+}
+.avatar_wrapper .avatars .avatar {
+	border-radius: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.1s ease-in-out;
+}
+.avatar_wrapper .avatars .avatar:hover {
+    box-shadow: 0 0 10px 5px white;
+}
+.avatar_wrapper .avatars .avatar img {
+	height: 6rem;
+	transition: 0.5s ease-in-out;
+}
+.avatar_wrapper .avatars .selected_avatar{
+    box-shadow: 0 0 10px 10px white;
+}
+
+.avatar_wrapper .submit_btn {
+	background-color: orange;
+	color: white;
+	padding: 1rem 2rem;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 0.4rem;
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+.avatar_wrapper .submit_btn:hover {
+	background: white;
+	color: rgb(0, 135, 232);
+}

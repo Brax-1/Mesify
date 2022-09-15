@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./index.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { registerRoute } from "../../utils/APIRoute";
+import { loginRoute, registerRoute } from "../../utils/APIRoute";
 
 const Auth = (props) => {
 	const [formData, setFormdata] = useState({
@@ -18,7 +18,7 @@ const Auth = (props) => {
 		autoClose: 4000,
 		pauseOnHover: true,
 		draggable: true,
-		theme: "dark",
+		theme: "colored",
 	};
 	const navigate = useNavigate();
 	function handleValidation() {
@@ -42,10 +42,10 @@ const Auth = (props) => {
 	async function handleSubmit(e) {
 		e.preventDefault();
 		const { email, username, password } = formData;
+		let dataPromise;
 		if (props.page === "register") {
 			if (handleValidation()) {
-				console.log("stared");
-				let dataPromise = new Promise(function (resolve, reject) {
+				dataPromise = new Promise(function (resolve, reject) {
 					axios
 						.post(registerRoute, {
 							username,
@@ -53,45 +53,71 @@ const Auth = (props) => {
 							password,
 						})
 						.then((res) => {
-							console.log(res);
 							if (res.data.status === false) {
-								console.log("error");
 								reject(new Error(res.data.msg));
 							} else {
 								localStorage.setItem("mesify", JSON.stringify(res.user));
 								navigate("/");
-								resolve("I am surely going to get resolved!");
+								resolve("Registered");
 							}
 						})
 						.catch((err) => {
 							reject(new Error("Will this be ignored?"));
 						});
 				});
-				toast.promise(dataPromise, {
-					pending: {
-					  render(){
-						return "Pls Wait Registering you"
-					  },
-					},
-					success: {
-					  render(){
-						return "Successfully Registered 👌"
-					  },
-					},
-					error: {
-					  render({data}){
-						return `${data}`
-					  }
-					}
-				  },toastOption
-			  );
-				console.log("data getting");
 			}
+		} else {
+			dataPromise = new Promise(function (resolve, reject) {
+				axios
+					.post(loginRoute, {
+						email,
+						password,
+					})
+					.then((res) => {
+						if (res.data.status === false) {
+							reject(new Error(res.data.msg));
+						} else {
+							localStorage.setItem("mesify", JSON.stringify(res.user));
+							navigate("/");
+							resolve("Login");
+						}
+					})
+					.catch((err) => {
+						reject(new Error("Will this be ignored?"));
+					});
+			});
 		}
+		toast.promise(
+			dataPromise,
+			{
+				pending: {
+					render() {
+						return "Processing Request";
+					},
+				},
+				success: {
+					render({data}) {
+						return `Successfully ${data} 👌`;
+					},
+				},
+				error: {
+					render({ data }) {
+						return `${data}`;
+					},
+				},
+			},
+			toastOption
+		);
 	}
 	function handleChange(e) {
 		setFormdata({ ...formData, [e.target.name]: e.target.value });
 	}
+	useEffect(() => {
+		if(localStorage.getItem('mesify')){
+			navigate('/')
+		}
+	}, [])
+	
 	return (
 		<>
 			<div className={classes.register_wrapper}>

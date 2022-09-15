@@ -3,3 +3,6 @@
 	margin: 0%;
 	font-family: "Roboto Slab", serif;
 }
+.selected_avatar{
+    border-color: rgb(0, 138, 177);
+}
