@@ -1,17 +1,21 @@
-import './App.css';
-import { StreamChat } from 'stream-chat'
-import { Chat } from 'stream-chat-react'
-import Cookies from 'universal-cookie'
-
-const apiKey = 'xbaahjpb5rez';
-const client = StreamChat.getInstance(apiKey);
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Chat from "./pages/Chat";
+import Auth from "./pages/Auth";
+import { Layout } from "./components/Layout";
 
 function App() {
-  return (
-    <div className="app-wrapper">
-    Advanced Messaging App
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<Layout>
+				<Routes>
+					<Route path="/register" element={<Auth page="register" />} />
+					<Route path="/login" element={<Auth page="login" />} />
+					<Route path="/" element={<Chat />} />
+				</Routes>{" "}
+			</Layout>
+		</BrowserRouter>
+	);
 }
 
 export default App;

@@ -1,0 +1,68 @@
+.layout_wrapper {
+	background: url("../../assets/backFin.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+	align-items: center;
+}
+.layout_wrapper .layout_content {
+	width: 96.5vw;
+	height: 93vh;
+	background: linear-gradient(
+		-135deg,
+		rgba(1, 144, 155, 0.707),
+		rgba(0, 81, 99, 0)
+	);
+	z-index: 1;
+	box-shadow: 0px 0px 40px -10px rgb(0, 0, 0);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.layout_navbar {
+	display: flex;
+	justify-content: space-between;
+	padding: 50px;
+	padding-bottom: 10px;
+}
+.layout_navbar_right span {
+	color: white;
+	margin: 10px;
+	font-weight: 800;
+	letter-spacing: 0.3px;
+	padding: 5px 20px;
+	border-radius: 50px;
+}
+.layout_navbar_right span:hover {
+	background: white;
+	color: rgba(1, 144, 155, 0.707);
+}
+.layout_navbar_left div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	gap: 15px;
+	font-size: 25px;
+	font-weight: 800;
+}
+
+.layout_navbar_left div img {
+	width: 40px;
+}
+
+@media only screen and (max-width: 1300px) {
+	.layout_wrapper .layout_content {
+		background: url("../../assets/gradient.gif");
+		background-repeat: no-repeat;
+		background-size: cover;
+        background-position: center;
+		height: 97vh;
+	}
+	
+}
