@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userRoutes = require("./routes/userRoutes")
 
 const app = express();
 require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth",userRoutes)
 
 const URL="mongodb+srv://brax123:alok1234@messageappcluster.j935w3w.mongodb.net/?retryWrites=true&w=majority"
 

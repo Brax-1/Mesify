@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./index.module.css";
 import {ToastContainer,toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
@@ -20,6 +20,7 @@ const Auth = (props) => {
 		draggable:true,
 		theme:"dark"
 	}
+	const navigate = useNavigate();
 	function handleValidation() {
 		const {email,username,password,confirmPassword} = formData;
 		if(password!==confirmPassword){
@@ -38,17 +39,33 @@ const Auth = (props) => {
 			toast.error("Email is required",toastOption)
 			return false
 		}
-		return false
+		return true
 	}
 
 	async function handleSubmit(e) {
 		e.preventDefault();
-		const {email,username,password,confirmPassword} = formData;
+		const {email,username,password} = formData;
 		if(props.page==="register"){
 			if(handleValidation()){
+				console.log("stared")
 				const data = await axios.post(registerRoute,{
 					username,email,password
 				})
+				toast.promise(
+					data,
+					{
+					  pending: 'Promise is pending',
+					  success: 'Promise resolved 👌',
+					  error: 'Promise rejected 🤯'
+					}
+				)
+				if (!data.status) {
+					toast.error(data.msg,toastOption)
+				}
+				else{
+					localStorage.setItem('mesify',JSON.stringify(data.user));
+				}
+				navigate("/");
 			}
 		}
 	}
