@@ -56,13 +56,13 @@ const Auth = (props) => {
 							if (res.data.status === false) {
 								reject(new Error(res.data.msg));
 							} else {
-								localStorage.setItem("mesify", JSON.stringify(res.user));
+								localStorage.setItem("mesify", JSON.stringify(res.data.user));
 								navigate("/");
 								resolve("Registered");
 							}
 						})
 						.catch((err) => {
-							reject(new Error("Will this be ignored?"));
+							reject(new Error("Something went wrong ?"));
 						});
 				});
 			}
@@ -77,7 +77,7 @@ const Auth = (props) => {
 						if (res.data.status === false) {
 							reject(new Error(res.data.msg));
 						} else {
-							localStorage.setItem("mesify", JSON.stringify(res.user));
+							localStorage.setItem("mesify", JSON.stringify(res.data.user));
 							navigate("/");
 							resolve("Login");
 						}
