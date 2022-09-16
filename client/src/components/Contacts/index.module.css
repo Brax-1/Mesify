@@ -1,0 +1,56 @@
+.contact_container {
+	display: grid;
+	grid-template-rows: 85% 15%;
+	overflow: hidden;
+	background-color: #0d0d0d;
+    padding: 0.8rem;
+}
+.contact_container .contacts_contacts {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+}
+.contact_container .contacts_contacts::-webkit-scrollbar {
+	width: 0.2rem;
+}
+.contact_container .contacts_contacts::-webkit-scrollbar-thumb {
+	background-color: #ffffff39;
+	width: 0.1rem;
+	border-radius: 1rem;
+}
+.contact_container .contacts_contacts .selected_contact {
+	background-color: #9a86f3;
+}
+.contact_container .contacts_contacts .contacts_contact {
+	cursor: pointer;
+	width: 100%;
+	display: flex;
+	gap: 0.1rem;
+	align-items: center;
+	transition: 0.5s ease-in-out;
+}
+.contact_container .contacts_contacts .contacts_label {
+	width: 100%;
+	transition: 0.5s ease-in-out;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.contact_container .contacts_contacts .contacts_username h4 {
+	color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    font-size: 13px;
+}
+.contact_container .contacts_contacts .contacts_avatar img {
+	height: 2rem;
+    margin: 10px 15px;
+}
+.contact_container .contacts_contacts .contacts_current_user {
+	background-color: #0d0d0d;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+}

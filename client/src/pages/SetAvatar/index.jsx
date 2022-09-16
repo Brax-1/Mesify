@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./index.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import {
-	loginRoute,
-	registerRoute,
 	setAvatarRoute,
 } from "../../utils/APIRoute";
 import loader from "../../assets/loader.gif";
@@ -42,6 +40,7 @@ const SetAvatar = () => {
 						if (data.data.isSet) {
 							user.isAvatarImageSet = true;
 							user.avatarImage = data.image;
+							console.log(user)
 							localStorage.setItem("mesify", JSON.stringify(user));
 							resolve("changed Avatar");
 							navigate("/");

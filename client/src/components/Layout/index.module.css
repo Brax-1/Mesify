@@ -1,24 +1,8 @@
-.layout_wrapper {
-	background: url("../../assets/backFin.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 1rem;
-	align-items: center;
-}
-.layout_wrapper .layout_content {
+.layout_content {
 	position: relative;
-	width: 96.5vw;
-	height: 93vh;
-	background: linear-gradient(
-		-135deg,
-		rgb(1, 145, 155),
-		rgba(1, 101, 155, 0)
-	);
+	width: 100vw;
+	height: 100vh;
+	background:rgb(19, 19, 19);
 	z-index: 1;
 	box-shadow: 0px 0px 40px -10px rgb(0, 0, 0);
 	display: flex;
