@@ -3,6 +3,7 @@
 	width: 100vw;
 	display: grid;
 	grid-template-columns: 20% 65% 15%;
+	box-shadow: 0 0 50px -40px white;
 }
 @media screen and (min-width: 720px) and (max-width: 1080px) {
     .chat_wrapper .chat_container {

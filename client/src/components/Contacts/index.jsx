@@ -8,9 +8,9 @@ const Contacts = ({ contacts, currentUser }) => {
 
 	useEffect(() => {
 		if (currentUser) {
-			console.log(currentUser)
+			console.log(currentUser);
 			setCurrentUserImage(currentUser.avatarImage);
-			setCurrentUserName(currentUser.userName);
+			setCurrentUserName(currentUser.username);
 		}
 	}, [currentUser]);
 	function changeCurrentChat(idx, contact) {}
@@ -38,11 +38,14 @@ const Contacts = ({ contacts, currentUser }) => {
 				})}
 			</div>
 			<div className={classes.contacts_current_user}>
-				<div className={classes.contacts_avatar}>
-					<img src={`data:image/svg+xml;base64,${currentUserImage}`} />
-				</div>
-				<div className={classes.contacts_username}>
-					<h3>{currentUserName}</h3>
+				<div className={classes.contacts_label}>Personal Info</div>
+				<div className={classes.contacts_personal}>
+					<div className={classes.contacts_avatar}>
+						<img src={`data:image/svg+xml;base64,${currentUserImage}`} />
+					</div>
+					<div className={classes.contacts_username}>
+						<h4>{currentUserName}</h4>
+					</div>
 				</div>
 			</div>
 		</div>

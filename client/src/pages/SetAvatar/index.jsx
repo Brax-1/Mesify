@@ -39,8 +39,8 @@ const SetAvatar = () => {
 					.then((data) => {
 						if (data.data.isSet) {
 							user.isAvatarImageSet = true;
-							user.avatarImage = data.image;
-							console.log(user)
+							user.avatarImage = data.data.image;
+							console.log(user,"users")
 							localStorage.setItem("mesify", JSON.stringify(user));
 							resolve("changed Avatar");
 							navigate("/");
@@ -81,7 +81,7 @@ const SetAvatar = () => {
 			var cntAvatar = avatars.length;
 			for (let i = 0; cntAvatar < 4; i++) {
 				await axios
-					.get(`${api}/${Math.round(Math.random() * 1000)}`)
+					.get(`${api}${Math.round(Math.random() * 1000)}`)
 					.then((image) => {
 						const buffer = new Buffer(image.data);
 						data.push(buffer.toString("base64"));

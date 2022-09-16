@@ -1,9 +1,11 @@
 .contact_container {
-	display: grid;
-	grid-template-rows: 85% 15%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	overflow: hidden;
-	background-color: #0d0d0d;
+	background:rgb(17, 17, 17);
     padding: 0.8rem;
+	border-right: 0.1px solid rgba(255, 255, 255, 0.078);
 }
 .contact_container .contacts_contacts {
 	display: flex;
@@ -21,6 +23,7 @@
 }
 .contact_container .contacts_contacts .selected_contact {
 	background-color: #9a86f3;
+	color: blue;
 }
 .contact_container .contacts_contacts .contacts_contact {
 	cursor: pointer;
@@ -28,9 +31,42 @@
 	display: flex;
 	gap: 0.1rem;
 	align-items: center;
-	transition: 0.5s ease-in-out;
+	transition: 0.2s ease-in-out;
+	border-radius: 1000px;
 }
-.contact_container .contacts_contacts .contacts_label {
+.contact_container .contacts_current_user {
+	cursor: pointer;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+	align-items: start;
+}
+.contact_container .contacts_current_user .contacts_personal{
+	cursor: pointer;
+	width: 100%;
+	display: flex;
+	gap: 0.1rem;
+	align-items: center;
+}
+.contact_container .contacts_current_user .contacts_personal h4{
+	color: rgb(255, 255, 255);
+}
+.contact_container .contacts_current_user img{
+	box-shadow: 0 0 10px -1px rgb(255, 255, 255);
+}
+.contact_container .contacts_contacts .contacts_contact:hover{
+	background: white;
+}
+.contact_container .contacts_contacts .contacts_contact:hover h4{
+	color: rgba(0, 82, 140, 0.707);
+	font-weight: 800;
+	
+}
+.contact_container .contacts_contacts .contacts_contact:hover img{
+	box-shadow: 0 0 10px -1px black;
+}
+.contact_container .contacts_label {
 	width: 100%;
 	transition: 0.5s ease-in-out;
     color: rgba(255, 255, 255, 0.5);
@@ -43,9 +79,11 @@
     font-weight: 400;
     font-size: 13px;
 }
-.contact_container .contacts_contacts .contacts_avatar img {
+.contact_container img {
 	height: 2rem;
     margin: 10px 15px;
+	padding: 1px;
+	border-radius: 1000px;
 }
 .contact_container .contacts_contacts .contacts_current_user {
 	background-color: #0d0d0d;
