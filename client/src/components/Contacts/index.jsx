@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./index.module.css";
 
-const Contacts = ({ contacts, currentUser }) => {
+const Contacts = ({ contacts, currentUser,changeChat }) => {
 	const [currentUserName, setCurrentUserName] = useState("");
 	const [currentUserImage, setCurrentUserImage] = useState(undefined);
 	const [currentSelected, setCurrentSelected] = useState(undefined);
@@ -13,7 +13,10 @@ const Contacts = ({ contacts, currentUser }) => {
 			setCurrentUserName(currentUser.username);
 		}
 	}, [currentUser]);
-	function changeCurrentChat(idx, contact) {}
+	function changeCurrentChat(idx, contact) {
+		setCurrentSelected(idx)
+		changeChat(contact)
+	}
 
 	return (
 		<div className={classes.contact_container}>
@@ -26,6 +29,7 @@ const Contacts = ({ contacts, currentUser }) => {
 								idx === currentSelected ? classes.selected_contact : ""
 							}`}
 							key={idx}
+							onClick={()=>changeCurrentChat(idx,contact)}
 						>
 							<div className={classes.contacts_avatar}>
 								<img src={`data:image/svg+xml;base64,${contact.avatarImage}`} />
@@ -38,13 +42,12 @@ const Contacts = ({ contacts, currentUser }) => {
 				})}
 			</div>
 			<div className={classes.contacts_current_user}>
-				<div className={classes.contacts_label}>Personal Info</div>
 				<div className={classes.contacts_personal}>
 					<div className={classes.contacts_avatar}>
 						<img src={`data:image/svg+xml;base64,${currentUserImage}`} />
 					</div>
 					<div className={classes.contacts_username}>
-						<h4>{currentUserName}</h4>
+						<h4>{currentUserName.slice(0,16)}{currentUserName.length>=16?"..":""}</h4>
 					</div>
 				</div>
 			</div>

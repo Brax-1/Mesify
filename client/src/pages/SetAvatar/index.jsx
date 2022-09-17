@@ -40,12 +40,13 @@ const SetAvatar = () => {
 						if (data.data.isSet) {
 							user.isAvatarImageSet = true;
 							user.avatarImage = data.data.image;
+							console.log(data.data.image,"image")
 							console.log(user,"users")
 							localStorage.setItem("mesify", JSON.stringify(user));
 							resolve("changed Avatar");
-							navigate("/");
+							navigate("/chat");
 						} else {
-							reject(new Error("Error1 setting avatar. Pls try again"));
+							reject(new Error("Error setting avatar. Pls try again"));
 						}
 					})
 					.catch((err) => {
@@ -78,19 +79,18 @@ const SetAvatar = () => {
 	useEffect(() => {
 		async function getAvatars() {
 			const data = [];
-			var cntAvatar = avatars.length;
-			for (let i = 0; cntAvatar < 4; i++) {
+			for (let i = 0; i < 8; i++) {
 				await axios
 					.get(`${api}${Math.round(Math.random() * 1000)}`)
 					.then((image) => {
 						const buffer = new Buffer(image.data);
 						data.push(buffer.toString("base64"));
-						cntAvatar = cntAvatar + 1;
 					})
 					.catch((err) => {
-						console.log(err, cntAvatar);
+						console.log(err);
 					});
 			}
+			console.log(data,"data")
 			setAvatars(data);
 			setLoading(false);
 		}

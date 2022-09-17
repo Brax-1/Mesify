@@ -4,7 +4,6 @@
 	justify-content: space-between;
 	overflow: hidden;
 	background:rgb(17, 17, 17);
-    padding: 0.8rem;
 	border-right: 0.1px solid rgba(255, 255, 255, 0.078);
 }
 .contact_container .contacts_contacts {
@@ -12,6 +11,7 @@
 	flex-direction: column;
 	align-items: center;
 	overflow: auto;
+	padding: 0.8rem;
 }
 .contact_container .contacts_contacts::-webkit-scrollbar {
 	width: 0.2rem;
@@ -22,7 +22,7 @@
 	border-radius: 1rem;
 }
 .contact_container .contacts_contacts .selected_contact {
-	background-color: #9a86f3;
+	background-color: #00738a;
 	color: blue;
 }
 .contact_container .contacts_contacts .contacts_contact {
@@ -37,10 +37,12 @@
 .contact_container .contacts_current_user {
 	cursor: pointer;
 	width: 100%;
+	background: rgba(255, 255, 255, 0.198);
 	display: flex;
 	flex-direction: column;
 	gap: 0.1rem;
-	align-items: start;
+	align-items: center;
+	padding: 0.3rem;
 }
 .contact_container .contacts_current_user .contacts_personal{
 	cursor: pointer;
@@ -48,12 +50,17 @@
 	display: flex;
 	gap: 0.1rem;
 	align-items: center;
+	justify-content: center;
 }
 .contact_container .contacts_current_user .contacts_personal h4{
-	color: rgb(255, 255, 255);
+	color: rgb(255, 251, 26);
+	font-size: 20px;
+	text-transform: capitalize;
 }
 .contact_container .contacts_current_user img{
-	box-shadow: 0 0 10px -1px rgb(255, 255, 255);
+	border: 5px solid rgb(255, 255, 255);
+	height: 3rem;
+    margin: 5px 15px;
 }
 .contact_container .contacts_contacts .contacts_contact:hover{
 	background: white;

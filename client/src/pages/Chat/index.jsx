@@ -8,6 +8,7 @@ import Contacts from "../../components/Contacts";
 const Chat = () => {
 	const [contacts, setContacts] = useState([]);
 	const [currentUser, setCurrentUser] = useState(undefined);
+	const [currentChat, setCurrentChat] = useState(undefined);
 	const navigate = useNavigate();
 	async function handleCurrentUser() {
 		if (!localStorage.getItem("mesify")) {
@@ -15,6 +16,9 @@ const Chat = () => {
 		} else {
 			setCurrentUser(await JSON.parse(localStorage.getItem("mesify")));
 		}
+	}
+	function handleChatChange(chat) {
+		setCurrentChat(chat);
 	}
 	async function handleGetAllUsers() {
 		if (currentUser) {
@@ -36,7 +40,7 @@ const Chat = () => {
 
 	return (
 		<div className={classes.chat_wrapper}>
-			<Contacts contacts={contacts} currentUser={currentUser} />
+			<Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
 		</div>
 	);
 };
